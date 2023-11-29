@@ -10,13 +10,16 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView{
-            VStack {
-                
-                NavigationLink("Start Quiz", destination : SwiftUIView01(phrase: "This is from the first view"))
-                    .font(.title)
-                
+            ZStack {
+                Color.purple.ignoresSafeArea().background()
+                VStack {
+                    Image("Quiz1").resizable().frame(width:500, height: 400)
+                    NavigationLink("Start Quiz", destination : SwiftUIView01(phrase: "This is from the first view"))
+                        .font(.largeTitle).bold()
+                        .foregroundColor(Color.white)
+                    Spacer()
+                }
             }
-           
         }
     }
 }
