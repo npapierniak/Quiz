@@ -12,6 +12,7 @@
 		EF6DDC012B178E4C00A2366F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF6DDC002B178E4C00A2366F /* Assets.xcassets */; };
 		EF6DDC042B178E4C00A2366F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF6DDC032B178E4C00A2366F /* Preview Assets.xcassets */; };
 		EF6DDC0B2B178F9800A2366F /* SwiftUIView01.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6DDC0A2B178F9800A2366F /* SwiftUIView01.swift */; };
+		EF6DDC0D2B18E0C400A2366F /* SwiftUIView02.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6DDC0C2B18E0C400A2366F /* SwiftUIView02.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		EF6DDC002B178E4C00A2366F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF6DDC032B178E4C00A2366F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		EF6DDC0A2B178F9800A2366F /* SwiftUIView01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView01.swift; sourceTree = "<group>"; };
+		EF6DDC0C2B18E0C400A2366F /* SwiftUIView02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView02.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				EF6DDBFC2B178E4B00A2366F /* QuizApp.swift */,
 				EF6DDBFE2B178E4B00A2366F /* ContentView.swift */,
 				EF6DDC0A2B178F9800A2366F /* SwiftUIView01.swift */,
+				EF6DDC0C2B18E0C400A2366F /* SwiftUIView02.swift */,
 				EF6DDC002B178E4C00A2366F /* Assets.xcassets */,
 				EF6DDC022B178E4C00A2366F /* Preview Content */,
 			);
@@ -142,6 +145,7 @@
 			files = (
 				EF6DDBFF2B178E4B00A2366F /* ContentView.swift in Sources */,
 				EF6DDBFD2B178E4B00A2366F /* QuizApp.swift in Sources */,
+				EF6DDC0D2B18E0C400A2366F /* SwiftUIView02.swift in Sources */,
 				EF6DDC0B2B178F9800A2366F /* SwiftUIView01.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
