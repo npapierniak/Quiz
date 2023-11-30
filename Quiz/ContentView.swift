@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationView{
+        NavigationView {
             ZStack {
                 Color.purple.ignoresSafeArea().background()
                 VStack {
@@ -17,8 +17,8 @@ struct ContentView: View {
                     NavigationLink("Start Quiz", destination : SwiftUIView01(phrase: "Question 1"))
                         .font(.largeTitle).bold()
                         .foregroundColor(Color.white)
-                    
                 }
+                .navigationBarBackButtonHidden(true)
             }
         }
     }

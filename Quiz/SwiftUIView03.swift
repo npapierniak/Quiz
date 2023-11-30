@@ -1,5 +1,5 @@
 //
-//  SwiftUIView02.swift
+//  SwiftUIView03.swift
 //  Quiz
 //
 //  Created by Nicholas Papierniak on 11/30/23.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SwiftUIView02: View {
+struct SwiftUIView03: View {
     let phrase : String
     var body: some View {
             VStack{
@@ -15,15 +15,15 @@ struct SwiftUIView02: View {
                     .font(.title)
                     .multilineTextAlignment(.center)
                 Spacer()
-                NavigationLink("Next Question", destination : SwiftUIView02(phrase: "Question 3"))
+                NavigationLink("Results", destination : SwiftUIView04(phrase: "Question 3"))
                     .font(.title)
                     .navigationTitle(phrase)
         }
     }
 }
 
-struct SwiftUIView02_Previews: PreviewProvider {
+struct SwiftUIView03_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView02(phrase: "Question 2")
+        SwiftUIView03(phrase: "Final Question")
     }
 }

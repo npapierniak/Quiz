@@ -10,14 +10,11 @@ import SwiftUI
 struct SwiftUIView01: View {
     let phrase : String
     var body: some View {
-        NavigationView {
             VStack{
-                Text(phrase)
-                    .font(.title).bold()
-                    .padding()
-                NavigationLink("Next Question", destination : SwiftUIView02(phrase: "Question 2"))
                 Spacer()
-            }
+                NavigationLink("Next Question", destination : SwiftUIView02(phrase: "Question 2"))
+                    .font(.title)
+                    .navigationTitle(phrase)
         }
     }
 }
