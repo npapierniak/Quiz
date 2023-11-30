@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var answers = Answers()
     var body: some View {
         NavigationView {
             ZStack {
@@ -27,4 +28,10 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
+}
+struct Answers {
+    let question1 = 2
+    let question2 = 4
+    let question3 = 1
+    var percent = 0.0
 }
