@@ -15,7 +15,7 @@ struct ContentView: View {
                 Color.purple.ignoresSafeArea().background()
                 VStack {
                     Image("Quiz1").resizable().frame(width:500, height: 400)
-                    NavigationLink("Start Quiz", destination : SwiftUIView01(phrase: "Question 1"))
+                    NavigationLink("Start Quiz", destination : SwiftUIView01(phrase: "Question 1", answer: Answers()))
                         .font(.largeTitle).bold()
                         .foregroundColor(Color.white)
                 }
