@@ -14,7 +14,7 @@ struct SwiftUIView01: View {
     @State private var goToNextView = false
     var body: some View {
         VStack{
-        
+            Text("Question 1").bold().font(.title2)
             Image("skin_structure").resizable().frame(width:500, height: 400)
                 .padding()
             Text("Human skin regenerates every week.")
@@ -34,8 +34,8 @@ struct SwiftUIView01: View {
             .buttonStyle(CustomButtonStyle())
             Spacer()
             NavigationLink(destination: SwiftUIView02(answer : Answers()), isActive: $goToNextView) {
-                            EmptyView() // EmptyView used as label as it's invisible
-                        }
+                EmptyView()
+            }
         }
     }
 }
