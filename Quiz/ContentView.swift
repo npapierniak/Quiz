@@ -29,9 +29,9 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
 struct Answers {
-    let question1 = 2
-    let question2 = 4
-    let question3 = 1
+    var question1: Int = 1
+    var question2 = 2
     var percent = 0.0
 }
