@@ -8,32 +8,52 @@
 import SwiftUI
 
 struct SwiftUIView02: View {
-    let phrase : String
     let answer : Answers
+    @State private var goToNextView = false
+    @State private var answers = Answers()
     var body: some View {
         VStack{
+            Image("Legs_Horse").resizable().frame(width:500, height: 270)
+                .padding()
             Text("What walks on four legs in the morning, two legs in the afternoon, three legs in the evening, and no legs at night?")
                 .font(.title)
                 .multilineTextAlignment(.center)
                 .padding()
-            Text("1. Time").font(.title)
+            HStack{
+                Button("Time"){
+                    goToNextView = true
+                }
+                .buttonStyle(CustomButtonStyle())
                 .padding()
-            Text("2. Humans").font(.title)
+                Button("Humans"){
+                    answers.right += 1
+                    goToNextView = true
+                }
+                .buttonStyle(CustomButtonStyle())
                 .padding()
-            Text("3. Race").font(.title)
+            }
+            HStack{
+                Button("Race"){
+                    goToNextView = true
+                }
+                .buttonStyle(CustomButtonStyle())
                 .padding()
-            Text("4. Skinwalker").font(.title)
-                .padding()
+                Button("Skin-Walker"){
+                    goToNextView = true
+                }
+                .buttonStyle(CustomButtonStyle())
+            }
             Spacer()
-            NavigationLink("Next Question", destination : SwiftUIView03(phrase: "Question 3"))
-                .font(.title)
-                .navigationTitle(phrase)
+            NavigationLink(destination: SwiftUIView03(answer : Answers()), isActive: $goToNextView) {
+                EmptyView() // EmptyView used as label as it's invisible
+            }
         }
     }
 }
 
 struct SwiftUIView02_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView02(phrase: "Question 2", answer : Answers())
+        SwiftUIView02(answer : Answers())
     }
 }
+

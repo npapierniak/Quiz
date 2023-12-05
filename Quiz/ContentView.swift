@@ -31,7 +31,7 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 struct Answers {
-    var question1: Int = 1
-    var question2 = 2
+    var right = 0
     var percent = 0.0
+    var number = 4
 }

@@ -11,6 +11,7 @@ struct SwiftUIView01: View {
     let phrase : String
     var answer : Answers
     @State private var answers = Answers()
+    @State private var goToNextView = false
     var body: some View {
         VStack{
         
@@ -22,19 +23,19 @@ struct SwiftUIView01: View {
                 .padding()
             HStack{
                 Button("True"){
-                    answers.question1 = 2
+                    answers.right += 1
+                    goToNextView = true
                 }
                 .padding()
                 Button("False"){
-                    answers.question1 = 1
+                    goToNextView = true
                 }
             }
             .buttonStyle(CustomButtonStyle())
             Spacer()
-            NavigationLink("Next Question", destination : SwiftUIView02(phrase: "Question 2", answer : Answers()))
-                .font(.title)
-                .navigationTitle(phrase)
-                .padding()
+            NavigationLink(destination: SwiftUIView02(answer : Answers()), isActive: $goToNextView) {
+                            EmptyView() // EmptyView used as label as it's invisible
+                        }
         }
     }
 }
@@ -48,7 +49,7 @@ struct SwiftUIView01_Previews: PreviewProvider {
 struct CustomButtonStyle: ButtonStyle {
     func makeBody (configuration: Configuration) -> some View {
         configuration.label
-            .frame (width: 50)
+            .frame (width: 80)
             .font (Font.custom("Marker Felt", size: 24))
             .padding () .background(.black).opacity (configuration.isPressed ? 0.0: 1.0)
             .foregroundColor (.white)
