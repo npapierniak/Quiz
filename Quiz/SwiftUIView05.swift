@@ -20,17 +20,30 @@ struct SwiftUIView05: View {
             Text("Here are your results")
                 .font(Font.custom("Kohinoor Telugu", size: 30))
                 .padding()
-            Text("You got \(answer.right) out of 4 questions right")
+            Text("You got \(GlobalData.shared.right) out of 4 questions right")
                 .font(Font.custom("Kohinoor Telugu", size: 30))
                 .padding()
-            if answer.right < 2
+            if GlobalData.shared.right < 2
             {
                 Text("You may need to study...")
                     .font(Font.custom("Kohinoor Telugu", size: 30))
                     .padding()
-            } else
+            }
+            if GlobalData.shared.right == 2
             {
-                Text("Good job!!!")
+                Text("50% isnt that bad...")
+                    .font(Font.custom("Kohinoor Telugu", size: 30))
+                    .padding()
+            }
+            if GlobalData.shared.right == 3
+            {
+                Text("Hey, not bad at all!")
+                    .font(Font.custom("Kohinoor Telugu", size: 30))
+                    .padding()
+            }
+            if GlobalData.shared.right == 4
+            {
+                Text("Great Job!!!")
                     .font(Font.custom("Kohinoor Telugu", size: 30))
                     .padding()
             }

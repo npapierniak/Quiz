@@ -25,12 +25,12 @@ struct SwiftUIView01: View {
                     .font(.title)
                 HStack{
                     Button("True"){
-                        answers.right += 1
                         goToNextView = true
                     }
                     .padding()
                     Button("False"){
                         goToNextView = true
+                        GlobalData.shared.right += 1
                     }
                 }
                 .buttonStyle(CustomButtonStyle())

@@ -33,6 +33,7 @@ struct SwiftUIView02: View {
                     .padding()
                     Button("Humans"){
                         answers.right += 1
+                        GlobalData.shared.right += 1
                         goToNextView = true
                     }
                     .buttonStyle(CustomButtonStyle1())

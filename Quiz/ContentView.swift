@@ -7,6 +7,12 @@
 
 import SwiftUI
 
+class GlobalData {
+    static let shared = GlobalData() // Singleton instance
+    var right = 0 // Property to store data
+    private init() {} // Private initializer to prevent direct instantiation
+}
+
 struct ContentView: View {
     @State private var answers = Answers()
     var body: some View {

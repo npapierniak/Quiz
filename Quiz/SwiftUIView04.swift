@@ -28,6 +28,7 @@ struct SwiftUIView04: View {
                     .padding()
                     Button("Vincent van Gogh"){
                         answers.right += 1
+                        GlobalData.shared.right += 1
                         goToNextView = true
                     }
                     .buttonStyle(CustomButtonStyle3())

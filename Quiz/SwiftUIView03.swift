@@ -25,6 +25,7 @@ struct SwiftUIView03: View {
                 HStack{
                     Button("True"){
                         answers.right += 1
+                        GlobalData.shared.right += 1
                         goToNextViews = true
                     }
                     .padding()
