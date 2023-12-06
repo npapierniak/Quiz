@@ -15,6 +15,7 @@
 		EF6DDC0D2B18E0C400A2366F /* SwiftUIView02.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6DDC0C2B18E0C400A2366F /* SwiftUIView02.swift */; };
 		EF6DDC0F2B18EA0900A2366F /* SwiftUIView03.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6DDC0E2B18EA0900A2366F /* SwiftUIView03.swift */; };
 		EF6DDC112B18EA3900A2366F /* SwiftUIView04.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6DDC102B18EA3900A2366F /* SwiftUIView04.swift */; };
+		EF6DDC132B20CFFA00A2366F /* SwiftUIView05.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6DDC122B20CFFA00A2366F /* SwiftUIView05.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		EF6DDC0C2B18E0C400A2366F /* SwiftUIView02.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView02.swift; sourceTree = "<group>"; };
 		EF6DDC0E2B18EA0900A2366F /* SwiftUIView03.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView03.swift; sourceTree = "<group>"; };
 		EF6DDC102B18EA3900A2366F /* SwiftUIView04.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView04.swift; sourceTree = "<group>"; };
+		EF6DDC122B20CFFA00A2366F /* SwiftUIView05.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIView05.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				EF6DDC0C2B18E0C400A2366F /* SwiftUIView02.swift */,
 				EF6DDC0E2B18EA0900A2366F /* SwiftUIView03.swift */,
 				EF6DDC102B18EA3900A2366F /* SwiftUIView04.swift */,
+				EF6DDC122B20CFFA00A2366F /* SwiftUIView05.swift */,
 				EF6DDC002B178E4C00A2366F /* Assets.xcassets */,
 				EF6DDC022B178E4C00A2366F /* Preview Content */,
 			);
@@ -154,6 +157,7 @@
 				EF6DDC0D2B18E0C400A2366F /* SwiftUIView02.swift in Sources */,
 				EF6DDC0F2B18EA0900A2366F /* SwiftUIView03.swift in Sources */,
 				EF6DDC112B18EA3900A2366F /* SwiftUIView04.swift in Sources */,
+				EF6DDC132B20CFFA00A2366F /* SwiftUIView05.swift in Sources */,
 				EF6DDC0B2B178F9800A2366F /* SwiftUIView01.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

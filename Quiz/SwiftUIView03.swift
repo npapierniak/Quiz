@@ -9,27 +9,34 @@ import SwiftUI
 
 struct SwiftUIView03: View {
     let answer : Answers
-    @State private var goToNextView = false
+    @State private var goToNextViews = false
     @State private var answers = Answers()
     var body: some View {
-        VStack{
-            Text("Squirrels can't take fall damage.")
-                .font(.title)
-                .multilineTextAlignment(.center)
-            HStack{
-                Button("True"){
-                    answers.right += 1
-                    goToNextView = true
+        ZStack {
+            Color.pink.opacity(0.3).ignoresSafeArea()
+            VStack{
+                Text("Question 3").bold().font(.title2)
+                Image("Squirrel").resizable().frame(width:500, height: 260)
+                    .padding()
+                    .padding()
+                Text("Squirrels can't take fall damage.")
+                    .font(.title)
+                    .multilineTextAlignment(.center)
+                HStack{
+                    Button("True"){
+                        answers.right += 1
+                        goToNextViews = true
+                    }
+                    .padding()
+                    Button("False"){
+                        goToNextViews = true
+                    }
                 }
-                .padding()
-                Button("False"){
-                    goToNextView = true
+                .buttonStyle(CustomButtonStyle2())
+                Spacer()
+                NavigationLink(destination: SwiftUIView04(answer : Answers()), isActive: $goToNextViews) {
+                    EmptyView()
                 }
-            }
-            .buttonStyle(CustomButtonStyle2())
-            Spacer()
-            NavigationLink(destination: SwiftUIView03(answer : Answers()), isActive: $goToNextView) {
-                EmptyView()
             }
         }
     }

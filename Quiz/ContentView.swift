@@ -12,7 +12,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                Color.purple.ignoresSafeArea().background()
+                Color.black.opacity(0.8).ignoresSafeArea().background()
                 VStack {
                     Image("Quiz1").resizable().frame(width:500, height: 400)
                     NavigationLink("Start Quiz", destination : SwiftUIView01(phrase: "Question 1", answer: Answers()))

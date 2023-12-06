@@ -13,28 +13,31 @@ struct SwiftUIView01: View {
     @State private var answers = Answers()
     @State private var goToNextView = false
     var body: some View {
-        VStack{
-            Text("Question 1").bold().font(.title2)
-            Image("skin_structure").resizable().frame(width:500, height: 400)
-                .padding()
-            Text("Human skin regenerates every week.")
-                .font(.title)
-                .multilineTextAlignment(.center)
-                .padding()
-            HStack{
-                Button("True"){
-                    answers.right += 1
-                    goToNextView = true
+        ZStack{
+            Color.pink.opacity(0.3).ignoresSafeArea()
+            VStack{
+                Text("Question 1").bold().font(.title2)
+                Image("skin_structure").resizable().frame(width:500, height: 400)
+                    .padding()
+                Text("Human skin")
+                    .font(.title)
+                Text("regenerates every week.")
+                    .font(.title)
+                HStack{
+                    Button("True"){
+                        answers.right += 1
+                        goToNextView = true
+                    }
+                    .padding()
+                    Button("False"){
+                        goToNextView = true
+                    }
                 }
-                .padding()
-                Button("False"){
-                    goToNextView = true
+                .buttonStyle(CustomButtonStyle())
+                Spacer()
+                NavigationLink(destination: SwiftUIView02(answer : Answers()), isActive: $goToNextView) {
+                    EmptyView()
                 }
-            }
-            .buttonStyle(CustomButtonStyle())
-            Spacer()
-            NavigationLink(destination: SwiftUIView02(answer : Answers()), isActive: $goToNextView) {
-                EmptyView()
             }
         }
     }
