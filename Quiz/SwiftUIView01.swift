@@ -24,12 +24,13 @@ struct SwiftUIView01: View {
                 HStack{
                     Button("True"){
                         goToNextView = true
+                        //sets the value of gotonextview as true so the navigation link knows you want to go to next view
                     }
                     .padding()
                     Button("False"){
                         goToNextView = true
                         GlobalData.shared.right += 1
-                        //increments the amount of right answers you get
+                        //increments the amount of right answers you get within the shared vairable
                     }
                 }
                 .buttonStyle(CustomButtonStyle())

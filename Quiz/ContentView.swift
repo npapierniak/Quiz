@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-class GlobalData {
-    static let shared = GlobalData()
-    var right = 0
-    private init() {}
+class GlobalData { //creates a class i can use throught my views
+    static let shared = GlobalData() //creates a shared variable that is able to be used
+    var right = 0//this is the variabel used
+    private init() {}// makes it so there isnt another creation of this class
 }
 
 struct ContentView: View {
@@ -22,9 +22,8 @@ struct ContentView: View {
                     Image("Quiz1").resizable().frame(width:500, height: 400)
                     NavigationLink("Start Quiz", destination : SwiftUIView01(phrase: "Question 1"))
                         .font(.largeTitle).bold()
-                        .foregroundColor(Color.white)
+                        .foregroundColor(Color.white)//Sends you to the next screen
                 }
-                .navigationBarBackButtonHidden(true)
             }
         }
     }
