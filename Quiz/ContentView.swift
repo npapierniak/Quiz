@@ -8,20 +8,19 @@
 import SwiftUI
 
 class GlobalData {
-    static let shared = GlobalData() // Singleton instance
-    var right = 0 // Property to store data
-    private init() {} // Private initializer to prevent direct instantiation
+    static let shared = GlobalData()
+    var right = 0
+    private init() {}
 }
 
 struct ContentView: View {
-    @State private var answers = Answers()
     var body: some View {
         NavigationView {
             ZStack {
                 Color.black.opacity(0.8).ignoresSafeArea().background()
                 VStack {
                     Image("Quiz1").resizable().frame(width:500, height: 400)
-                    NavigationLink("Start Quiz", destination : SwiftUIView01(phrase: "Question 1", answer: Answers()))
+                    NavigationLink("Start Quiz", destination : SwiftUIView01(phrase: "Question 1"))
                         .font(.largeTitle).bold()
                         .foregroundColor(Color.white)
                 }
@@ -35,10 +34,4 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
     }
-}
-
-struct Answers {
-    var right = 0
-    var percent = 0.0
-    var number = 4
 }

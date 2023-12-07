@@ -9,9 +9,7 @@ import SwiftUI
 
 struct SwiftUIView01: View {
     let phrase : String
-    var answer : Answers
-    @State private var answers = Answers()
-    @State private var goToNextView = false
+    @State private var goToNextView = false //creates a boolean to see if you want to go to next view
     var body: some View {
         ZStack{
             Color.pink.opacity(0.3).ignoresSafeArea()
@@ -31,12 +29,14 @@ struct SwiftUIView01: View {
                     Button("False"){
                         goToNextView = true
                         GlobalData.shared.right += 1
+                        //increments the amount of right answers you get
                     }
                 }
                 .buttonStyle(CustomButtonStyle())
                 Spacer()
-                NavigationLink(destination: SwiftUIView02(answer : Answers()), isActive: $goToNextView) {
-                    EmptyView()
+                NavigationLink(destination: SwiftUIView02(), isActive: $goToNextView) {
+                    //this makes boolean link, checks if you want to go to next view if $goToNextView is true it sends you to nect view
+                    EmptyView()//Hides the link inside the button
                 }
             }
         }
@@ -45,17 +45,17 @@ struct SwiftUIView01: View {
 
 struct SwiftUIView01_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView01(phrase: "Question 1", answer : Answers())
+        SwiftUIView01(phrase: "Question 1")
     }
 }
 
 struct CustomButtonStyle: ButtonStyle {
     func makeBody (configuration: Configuration) -> some View {
         configuration.label
-            .frame (width: 80)
+            .frame (width: 80)//creates the size of the button
             .font (Font.custom("Marker Felt", size: 24))
-            .padding () .background(.black).opacity (configuration.isPressed ? 0.0: 1.0)
-            .foregroundColor (.white)
-            .clipShape (RoundedRectangle (cornerRadius: 10))
+            .padding () .background(.black).opacity (configuration.isPressed ? 0.0: 1.0)//changes color of butotn
+            .foregroundColor (.white)//changes the text of the button
+            .clipShape (RoundedRectangle (cornerRadius: 10))//makes it round
     }
-}
+}//This is just my custom button which changes a little for each page

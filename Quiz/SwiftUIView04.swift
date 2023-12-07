@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct SwiftUIView04: View {
-    let answer : Answers
     @State private var goToNextView = false
-    @State private var answers = Answers()
     var body: some View {
             VStack {
                 Text("Question 4").font(.title2).bold()
@@ -27,7 +25,6 @@ struct SwiftUIView04: View {
                     .buttonStyle(CustomButtonStyle3())
                     .padding()
                     Button("Vincent van Gogh"){
-                        answers.right += 1
                         GlobalData.shared.right += 1
                         goToNextView = true
                     }
@@ -47,7 +44,7 @@ struct SwiftUIView04: View {
                     .padding()
                 }
                 Spacer()
-                NavigationLink(destination: SwiftUIView05(answer : Answers()), isActive: $goToNextView) {
+                NavigationLink(destination: SwiftUIView05(), isActive: $goToNextView) {
                     EmptyView()
                 }
             }
@@ -56,7 +53,7 @@ struct SwiftUIView04: View {
 
 struct SwiftUIView04_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView04(answer : Answers())
+        SwiftUIView04()
     }
 }
 

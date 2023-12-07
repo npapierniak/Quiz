@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct SwiftUIView05: View {
-    let answer : Answers
     @State private var goToNextView = false
-    @State private var answers = Answers()
     var body: some View {
         VStack{
 
@@ -62,7 +60,7 @@ struct SwiftUIView05: View {
 
 struct SwiftUIView05_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView05(answer : Answers())
+        SwiftUIView05()
     }
 }
 

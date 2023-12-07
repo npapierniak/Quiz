@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct SwiftUIView03: View {
-    let answer : Answers
     @State private var goToNextViews = false
-    @State private var answers = Answers()
     var body: some View {
         ZStack {
             Color.pink.opacity(0.3).ignoresSafeArea()
@@ -24,7 +22,6 @@ struct SwiftUIView03: View {
                     .multilineTextAlignment(.center)
                 HStack{
                     Button("True"){
-                        answers.right += 1
                         GlobalData.shared.right += 1
                         goToNextViews = true
                     }
@@ -35,7 +32,7 @@ struct SwiftUIView03: View {
                 }
                 .buttonStyle(CustomButtonStyle2())
                 Spacer()
-                NavigationLink(destination: SwiftUIView04(answer : Answers()), isActive: $goToNextViews) {
+                NavigationLink(destination: SwiftUIView04(), isActive: $goToNextViews) {
                     EmptyView()
                 }
             }
@@ -45,7 +42,7 @@ struct SwiftUIView03: View {
 
 struct SwiftUIView03_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView03(answer : Answers())
+        SwiftUIView03()
     }
 }
 
