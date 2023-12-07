@@ -28,6 +28,11 @@ struct SwiftUIView05: View {
                 Text("You may need to study...")
                     .font(Font.custom("Kohinoor Telugu", size: 30))
                     .padding()
+                Button("Round 2?"){
+                    GlobalData.shared.right = 0
+                    goToNextView = true
+                }
+                .buttonStyle(CustomButtonStyle4())
             }
             if GlobalData.shared.right == 2
             {
@@ -47,6 +52,9 @@ struct SwiftUIView05: View {
                     .font(Font.custom("Kohinoor Telugu", size: 30))
                     .padding()
             }
+            NavigationLink(destination: ContentView(), isActive: $goToNextView) {
+                EmptyView()
+            }
             Spacer()
         }
     }
@@ -55,5 +63,16 @@ struct SwiftUIView05: View {
 struct SwiftUIView05_Previews: PreviewProvider {
     static var previews: some View {
         SwiftUIView05(answer : Answers())
+    }
+}
+
+struct CustomButtonStyle4: ButtonStyle {
+    func makeBody (configuration: Configuration) -> some View {
+        configuration.label
+            .frame (width: 100)
+            .font (Font.custom("Marker Felt", size: 26))
+            .padding () .background(.blue).opacity (configuration.isPressed ? 0.0: 1.0)
+            .foregroundColor (.white)
+            .clipShape (RoundedRectangle (cornerRadius: 10))
     }
 }
