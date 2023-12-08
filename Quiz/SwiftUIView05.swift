@@ -10,50 +10,69 @@ import SwiftUI
 struct SwiftUIView05: View {
     @State private var goToNextView = false
     var body: some View {
-        VStack{
-
-            Text("Thank you for taking the quiz!!")
-                .font(Font.custom("Kohinoor Telugu", size: 30))
-                .padding()
-            Text("Here are your results")
-                .font(Font.custom("Kohinoor Telugu", size: 30))
-                .padding()
-            Text("You got \(GlobalData.shared.right) out of 4 questions right")
-                .font(Font.custom("Kohinoor Telugu", size: 30))
-                .padding()
-            if GlobalData.shared.right < 2
-            {
-                Text("You may need to study...")
-                    .font(Font.custom("Kohinoor Telugu", size: 30))
+        ZStack{
+            Color.black.opacity(0.8).ignoresSafeArea().background()
+            VStack{
+                Text("Thank you for taking the quiz!!")
+                    .font(Font.custom("Gill Sans", size: 30))
+                    .foregroundColor (.white)
                     .padding()
-                Button("Round 2?"){
-                    GlobalData.shared.right = 0
-                    goToNextView = true
+                Text("Here are your results")
+                    .font(Font.custom("Gill Sans", size: 30))
+                    .foregroundColor (.white)
+                    .padding()
+                Text("You got \(GlobalData.shared.right) out of 4 questions right")
+                    .font(Font.custom("Gill Sans", size: 30))
+                    .foregroundColor (.white)
+                    .padding()
+                if GlobalData.shared.right < 2
+                {
+                    Text("You may need to study...")
+                        .font(Font.custom("Gill Sans", size: 30))
+                        .foregroundColor (.white)
+                        .padding()
+                    Button("Round 2?"){
+                        GlobalData.shared.right = 0
+                        goToNextView = true
+                    }
+                    .buttonStyle(CustomButtonStyle4())
                 }
-                .buttonStyle(CustomButtonStyle4())
+                if GlobalData.shared.right == 2
+                {
+                    Text("50% isnt that bad...")
+                        .font(Font.custom("Gill Sans", size: 30))
+                        .foregroundColor (.white)
+                        .padding()
+                    Button("Round 2?"){
+                        GlobalData.shared.right = 0
+                        goToNextView = true
+                    }
+                    .buttonStyle(CustomButtonStyle4())
+                }
+                if GlobalData.shared.right == 3
+                {
+                    Text("Hey, not bad at all!")
+                        .font(Font.custom("Gill Sans", size: 30))
+                        .foregroundColor (.white)
+                        .padding()
+                    Button("Round 2?"){
+                        GlobalData.shared.right = 0
+                        goToNextView = true
+                    }
+                    .buttonStyle(CustomButtonStyle4())
+                }
+                if GlobalData.shared.right == 4
+                {
+                    Text("Great Job!!!")
+                        .font(Font.custom("Gill Sans", size: 30))
+                        .foregroundColor (.white)
+                        .padding()
+                }
+                NavigationLink(destination: ContentView(), isActive: $goToNextView) {
+                    EmptyView()
+                }
+                Spacer()
             }
-            if GlobalData.shared.right == 2
-            {
-                Text("50% isnt that bad...")
-                    .font(Font.custom("Kohinoor Telugu", size: 30))
-                    .padding()
-            }
-            if GlobalData.shared.right == 3
-            {
-                Text("Hey, not bad at all!")
-                    .font(Font.custom("Kohinoor Telugu", size: 30))
-                    .padding()
-            }
-            if GlobalData.shared.right == 4
-            {
-                Text("Great Job!!!")
-                    .font(Font.custom("Kohinoor Telugu", size: 30))
-                    .padding()
-            }
-            NavigationLink(destination: ContentView(), isActive: $goToNextView) {
-                EmptyView()
-            }
-            Spacer()
         }
     }
 }

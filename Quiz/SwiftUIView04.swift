@@ -10,46 +10,46 @@ import SwiftUI
 struct SwiftUIView04: View {
     @State private var goToNextView = false
     var body: some View {
-            VStack {
-                Text("Question 4").font(.title2).bold()
-                Image("Painter").resizable().frame(width:500, height: 260)
-                    .padding()
-                    .padding()
-                Text("Which artist is known for cutting off his own ear?")
-                    .font(.title)
-                    .multilineTextAlignment(.center)
-                HStack{
-                    Button("Pablo Picasso"){
-                        goToNextView = true
-                    }
-                    .buttonStyle(CustomButtonStyle3())
-                    .padding()
-                    Button("Vincent van Gogh"){
-                        GlobalData.shared.right += 1
-                        goToNextView = true
-                    }
-                    .buttonStyle(CustomButtonStyle3())
-                    .padding()
+        VStack {
+            Text("Question 4").font(.title2).bold()
+            Image("Painter").resizable().frame(width:500, height: 260)
+                .padding()
+                .padding()
+            Text("Which artist is known for cutting off his own ear?")
+                .font(.title)
+                .multilineTextAlignment(.center)
+            HStack{
+                Button("Pablo Picasso"){
+                    goToNextView = true
                 }
-                HStack{
-                    Button("Leonardo da Vinci"){
-                        goToNextView = true
-                    }
-                    .buttonStyle(CustomButtonStyle3())
-                    .padding()
-                    Button("Claude Monet"){
-                        goToNextView = true
-                    }
-                    .buttonStyle(CustomButtonStyle3())
-                    .padding()
+                .buttonStyle(CustomButtonStyle3())
+                .padding()
+                Button("Vincent van Gogh"){
+                    GlobalData.shared.right += 1
+                    goToNextView = true
                 }
-                Spacer()
-                NavigationLink(destination: SwiftUIView05(), isActive: $goToNextView) {
-                    EmptyView()
+                .buttonStyle(CustomButtonStyle3())
+                .padding()
+            }
+            HStack{
+                Button("Leonardo da Vinci"){
+                    goToNextView = true
                 }
+                .buttonStyle(CustomButtonStyle3())
+                .padding()
+                Button("Claude Monet"){
+                    goToNextView = true
+                }
+                .buttonStyle(CustomButtonStyle3())
+                .padding()
+            }
+            Spacer()
+            NavigationLink(destination: SwiftUIView05(), isActive: $goToNextView) {
+                EmptyView()
             }
         }
     }
+}
 
 struct SwiftUIView04_Previews: PreviewProvider {
     static var previews: some View {
