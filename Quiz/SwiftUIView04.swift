@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SwiftUIView04: View {
-    @State private var goToNextView = false
+    @Binding var nextView : Bool //creates a boolean to see if you want to go to next view
     var body: some View {
         VStack {
             Text("Question 4").font(.title2).bold()
@@ -19,41 +19,36 @@ struct SwiftUIView04: View {
                 .font(.title)
                 .multilineTextAlignment(.center)
             HStack{
-                Button("Pablo Picasso"){
-                    goToNextView = true
-                }
-                .buttonStyle(CustomButtonStyle3())
-                .padding()
-                Button("Vincent van Gogh"){
-                    GlobalData.shared.right += 1
-                    goToNextView = true
-                }
-                .buttonStyle(CustomButtonStyle3())
-                .padding()
+                NavigationLink("Pablo Picasso", destination:  SwiftUIView05(nextView: $nextView))
+                    .buttonStyle(CustomButtonStyle3())
+                    .padding()
+                NavigationLink("Vincent van Gogh", destination:  SwiftUIView05(nextView: $nextView))
+                    .simultaneousGesture(TapGesture().onEnded {
+                    addPoint()
+                })
+                    .buttonStyle(CustomButtonStyle3())
+                    .padding()
             }
             HStack{
-                Button("Leonardo da Vinci"){
-                    goToNextView = true
-                }
-                .buttonStyle(CustomButtonStyle3())
-                .padding()
-                Button("Claude Monet"){
-                    goToNextView = true
-                }
-                .buttonStyle(CustomButtonStyle3())
-                .padding()
+                NavigationLink("Leonardo da Vinci", destination:  SwiftUIView05(nextView: $nextView))
+                    .buttonStyle(CustomButtonStyle3())
+                    .padding()
+                NavigationLink("Claude Monet", destination:  SwiftUIView05(nextView: $nextView))
+                    .buttonStyle(CustomButtonStyle3())
+                    .padding()
             }
             Spacer()
-            NavigationLink(destination: SwiftUIView05(), isActive: $goToNextView) {
-                EmptyView()
-            }
         }
+    }
+    func addPoint()
+    {
+        GlobalData.shared.right += 1
     }
 }
 
 struct SwiftUIView04_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView04()
+        SwiftUIView04(nextView: .constant(false))
     }
 }
 

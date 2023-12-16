@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SwiftUIView03: View {
-    @State private var goToNextViews = false
+    @Binding var nextView : Bool //creates a boolean to see if you want to go to next view
     var body: some View {
         ZStack {
             Color.pink.opacity(0.3).ignoresSafeArea()
@@ -21,28 +21,27 @@ struct SwiftUIView03: View {
                     .font(.title)
                     .multilineTextAlignment(.center)
                 HStack{
-                    Button("True"){
-                        GlobalData.shared.right += 1
-                        goToNextViews = true
-                    }
-                    .padding()
-                    Button("False"){
-                        goToNextViews = true
-                    }
+                    NavigationLink("True", destination:  SwiftUIView04(nextView: $nextView))
+                        .simultaneousGesture(TapGesture().onEnded {
+                        addPoint()
+                    })
+                        .padding()
+                    NavigationLink("False", destination:  SwiftUIView04(nextView: $nextView))
                 }
                 .buttonStyle(CustomButtonStyle2())
                 Spacer()
-                NavigationLink(destination: SwiftUIView04(), isActive: $goToNextViews) {
-                    EmptyView()
-                }
             }
         }
+    }
+    func addPoint()
+    {
+        GlobalData.shared.right += 1
     }
 }
 
 struct SwiftUIView03_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView03()
+        SwiftUIView03(nextView: .constant(false))
     }
 }
 

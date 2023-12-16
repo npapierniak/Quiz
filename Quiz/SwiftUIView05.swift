@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SwiftUIView05: View {
-    @State private var goToNextView = false
+    @Binding var nextView : Bool //creates a boolean to see if you want to go to next view
     var body: some View {
         ZStack{
             Color.black.opacity(0.8).ignoresSafeArea().background()
@@ -31,11 +31,14 @@ struct SwiftUIView05: View {
                         .font(Font.custom("Gill Sans", size: 30))
                         .foregroundColor (.white)
                         .padding()
-                    Button("Round 2?"){
-                        GlobalData.shared.right = 0
-                        goToNextView = true
+                    Button("Round 2?")
+                    {
+                        nextView = false
                     }
-                    .buttonStyle(CustomButtonStyle4())
+                    .simultaneousGesture(TapGesture().onEnded {
+                    resetPoints()
+                })
+                        .buttonStyle(CustomButtonStyle4())
                 }
                 if GlobalData.shared.right == 2
                 {
@@ -43,11 +46,14 @@ struct SwiftUIView05: View {
                         .font(Font.custom("Gill Sans", size: 30))
                         .foregroundColor (.white)
                         .padding()
-                    Button("Round 2?"){
-                        GlobalData.shared.right = 0
-                        goToNextView = true
+                    Button("Round 2?")
+                    {
+                        nextView = false
                     }
-                    .buttonStyle(CustomButtonStyle4())
+                    .simultaneousGesture(TapGesture().onEnded {
+                    resetPoints()
+                })
+                        .buttonStyle(CustomButtonStyle4())
                 }
                 if GlobalData.shared.right == 3
                 {
@@ -55,11 +61,14 @@ struct SwiftUIView05: View {
                         .font(Font.custom("Gill Sans", size: 30))
                         .foregroundColor (.white)
                         .padding()
-                    Button("Round 2?"){
-                        GlobalData.shared.right = 0
-                        goToNextView = true
+                    Button("Round 2?")
+                    {
+                        nextView = false
                     }
-                    .buttonStyle(CustomButtonStyle4())
+                    .simultaneousGesture(TapGesture().onEnded {
+                    resetPoints()
+                })
+                        .buttonStyle(CustomButtonStyle4())
                 }
                 if GlobalData.shared.right == 4
                 {
@@ -67,19 +76,28 @@ struct SwiftUIView05: View {
                         .font(Font.custom("Gill Sans", size: 30))
                         .foregroundColor (.white)
                         .padding()
-                }
-                NavigationLink(destination: ContentView(), isActive: $goToNextView) {
-                    EmptyView()
+                    Button("Round 2?")
+                    {
+                        nextView = false
+                    }
+                    .simultaneousGesture(TapGesture().onEnded {
+                    resetPoints()
+                })
+                        .buttonStyle(CustomButtonStyle4())
                 }
                 Spacer()
             }
         }
     }
+    func resetPoints()
+    {
+        GlobalData.shared.right = 0
+    }
 }
 
 struct SwiftUIView05_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView05()
+        SwiftUIView05(nextView: .constant(false))
     }
 }
 

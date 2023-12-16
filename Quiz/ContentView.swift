@@ -14,13 +14,14 @@ class GlobalData { //creates a class i can use throught my views
 }
 
 struct ContentView: View {
+    @State private var goToNextView: Bool = false
     var body: some View {
-        NavigationView {
+        NavigationView{
             ZStack {
                 Color.black.opacity(0.8).ignoresSafeArea().background()
                 VStack {
                     Image("Quiz1").resizable().frame(width:500, height: 400)
-                    NavigationLink("Start Quiz", destination : SwiftUIView01(phrase: "Question 1"))
+                    NavigationLink("Start Quiz", destination:  SwiftUIView01(phrase: "Question 1", nextView: $goToNextView), isActive: $goToNextView)
                         .font(.largeTitle).bold()
                         .foregroundColor(Color.white)//Sends you to the next screen
                 }

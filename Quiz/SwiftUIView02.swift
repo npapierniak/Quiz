@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SwiftUIView02: View {
-    @State private var goToNextView = false
+    @Binding var nextView : Bool //creates a boolean to see if you want to go to next view
     var body: some View {
         VStack{
             Text("Question 2").bold().font(.title2)
@@ -24,48 +24,43 @@ struct SwiftUIView02: View {
                 .font(Font.custom("Copperplate", size: 27))
                 .multilineTextAlignment(.center)
             HStack{
-                Button("Time"){
-                    goToNextView = true
-                }
-                .buttonStyle(CustomButtonStyle1())
-                .padding()
-                Button("Humans"){
-                    GlobalData.shared.right += 1
-                    goToNextView = true
-                }
-                .buttonStyle(CustomButtonStyle1())
-                .padding()
+                NavigationLink("Time", destination:  SwiftUIView03(nextView: $nextView))
+                    .buttonStyle(CustomButtonStyle1())
+                    .padding()
+                NavigationLink("Humans", destination:  SwiftUIView03(nextView: $nextView))
+                    .simultaneousGesture(TapGesture().onEnded {
+                    addPoint()
+                })
+                    .buttonStyle(CustomButtonStyle1())
+                    .padding()
             }
             HStack{
-                Button("Race"){
-                    goToNextView = true
-                }
-                .buttonStyle(CustomButtonStyle1())
-                .padding()
-                Button("Skin-Walker"){
-                    goToNextView = true
-                }
-                .buttonStyle(CustomButtonStyle1())
-                .padding()
+                NavigationLink("Race", destination:  SwiftUIView03(nextView: $nextView))
+                    .buttonStyle(CustomButtonStyle1())
+                    .padding()
+                NavigationLink("SkinWalker", destination:  SwiftUIView03(nextView: $nextView))
+                    .buttonStyle(CustomButtonStyle1())
+                    .padding()
             }
             Spacer()
-            NavigationLink(destination: SwiftUIView03(), isActive: $goToNextView) {
-                EmptyView()
-            }
         }
+    }
+    func addPoint()
+    {
+        GlobalData.shared.right += 1
     }
 }
 
 struct SwiftUIView02_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView02()
+        SwiftUIView02(nextView: .constant(false))
     }
 }
 
 struct CustomButtonStyle1: ButtonStyle {
     func makeBody (configuration: Configuration) -> some View {
         configuration.label
-            .frame (width: 80)
+            .frame (width: 130)
             .font (Font.custom("Marker Felt", size: 24))
             .padding () .background(.red).opacity (configuration.isPressed ? 0.0: 1.0)
             .foregroundColor (.black)

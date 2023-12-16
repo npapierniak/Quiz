@@ -9,7 +9,7 @@ import SwiftUI
 
 struct SwiftUIView01: View {
     let phrase : String
-    @State private var goToNextView = false //creates a boolean to see if you want to go to next view
+    @Binding var nextView : Bool
     var body: some View {
         ZStack{
             Color.pink.opacity(0.3).ignoresSafeArea()
@@ -22,31 +22,28 @@ struct SwiftUIView01: View {
                 Text("regenerates every week.")
                     .font(.title)
                 HStack{
-                    Button("True"){
-                        goToNextView = true
-                        //sets the value of gotonextview as true so the navigation link knows you want to go to next view
-                    }
+                    NavigationLink("True", destination:  SwiftUIView02(nextView: $nextView))
                     .padding()
-                    Button("False"){
-                        goToNextView = true
-                        GlobalData.shared.right += 1
-                        //increments the amount of right answers you get within the shared vairable
-                    }
+                    NavigationLink("False", destination:  SwiftUIView02(nextView: $nextView))
+                        .simultaneousGesture(TapGesture().onEnded {
+                        addPoint()
+                    })
                 }
                 .buttonStyle(CustomButtonStyle())
                 Spacer()
-                NavigationLink(destination: SwiftUIView02(), isActive: $goToNextView) {
-                    //this makes boolean link, checks if you want to go to next view if $goToNextView is true it sends you to nect view
-                    EmptyView()//Hides the link inside the button
-                }
             }
         }
+    }
+    func addPoint()
+    {
+        GlobalData.shared.right += 1
+        //increments the amount of right answers you get within the shared vairable
     }
 }
 
 struct SwiftUIView01_Previews: PreviewProvider {
     static var previews: some View {
-        SwiftUIView01(phrase: "Question 1")
+        SwiftUIView01(phrase: "Question 1", nextView: .constant(false))
     }
 }
 
