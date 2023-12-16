@@ -23,8 +23,8 @@ struct SwiftUIView03: View {
                 HStack{
                     NavigationLink("True", destination:  SwiftUIView04(nextView: $nextView))
                         .simultaneousGesture(TapGesture().onEnded {
-                        addPoint()
-                    })
+                            addPoint()
+                        })
                         .padding()
                     NavigationLink("False", destination:  SwiftUIView04(nextView: $nextView))
                 }

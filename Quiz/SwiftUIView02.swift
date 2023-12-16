@@ -29,8 +29,8 @@ struct SwiftUIView02: View {
                     .padding()
                 NavigationLink("Humans", destination:  SwiftUIView03(nextView: $nextView))
                     .simultaneousGesture(TapGesture().onEnded {
-                    addPoint()
-                })
+                        addPoint()
+                    })
                     .buttonStyle(CustomButtonStyle1())
                     .padding()
             }

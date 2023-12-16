@@ -24,8 +24,8 @@ struct SwiftUIView04: View {
                     .padding()
                 NavigationLink("Vincent van Gogh", destination:  SwiftUIView05(nextView: $nextView))
                     .simultaneousGesture(TapGesture().onEnded {
-                    addPoint()
-                })
+                        addPoint()
+                    })
                     .buttonStyle(CustomButtonStyle3())
                     .padding()
             }

@@ -23,11 +23,11 @@ struct SwiftUIView01: View {
                     .font(.title)
                 HStack{
                     NavigationLink("True", destination:  SwiftUIView02(nextView: $nextView))
-                    .padding()
+                        .padding()
                     NavigationLink("False", destination:  SwiftUIView02(nextView: $nextView))
                         .simultaneousGesture(TapGesture().onEnded {
-                        addPoint()
-                    })
+                            addPoint()
+                        })
                 }
                 .buttonStyle(CustomButtonStyle())
                 Spacer()

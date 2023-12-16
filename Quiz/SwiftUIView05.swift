@@ -36,9 +36,9 @@ struct SwiftUIView05: View {
                         nextView = false
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                    resetPoints()
-                })
-                        .buttonStyle(CustomButtonStyle4())
+                        resetPoints()
+                    })
+                    .buttonStyle(CustomButtonStyle4())
                 }
                 if GlobalData.shared.right == 2
                 {
@@ -51,9 +51,9 @@ struct SwiftUIView05: View {
                         nextView = false
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                    resetPoints()
-                })
-                        .buttonStyle(CustomButtonStyle4())
+                        resetPoints()
+                    })
+                    .buttonStyle(CustomButtonStyle4())
                 }
                 if GlobalData.shared.right == 3
                 {
@@ -66,9 +66,9 @@ struct SwiftUIView05: View {
                         nextView = false
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                    resetPoints()
-                })
-                        .buttonStyle(CustomButtonStyle4())
+                        resetPoints()
+                    })
+                    .buttonStyle(CustomButtonStyle4())
                 }
                 if GlobalData.shared.right == 4
                 {
@@ -81,9 +81,9 @@ struct SwiftUIView05: View {
                         nextView = false
                     }
                     .simultaneousGesture(TapGesture().onEnded {
-                    resetPoints()
-                })
-                        .buttonStyle(CustomButtonStyle4())
+                        resetPoints()
+                    })
+                    .buttonStyle(CustomButtonStyle4())
                 }
                 Spacer()
             }
