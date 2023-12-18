@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct SwiftUIView01: View {
     let phrase : String
     @Binding var nextView : Bool
@@ -22,7 +21,7 @@ struct SwiftUIView01: View {
                 Text("regenerates every week.")
                     .font(.title)
                 HStack{
-                    NavigationLink("True", destination:  SwiftUIView02(nextView: $nextView))
+                    NavigationLink("True", destination:  SwiftUIView02(nextView: $nextView))//Do not use buttons throughout instead make a navigation link and turn it to look like a button
                         .padding()
                     NavigationLink("False", destination:  SwiftUIView02(nextView: $nextView))
                         .simultaneousGesture(TapGesture().onEnded {

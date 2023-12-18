@@ -85,11 +85,12 @@ struct SwiftUIView05: View {
                     })
                     .buttonStyle(CustomButtonStyle4())
                 }
+                //each if statment is a custom output based on what score you get each has its own if and response
                 Spacer()
             }
         }
     }
-    func resetPoints()
+    func resetPoints()// sets the global data to zero so you can re take the quiz
     {
         GlobalData.shared.right = 0
     }

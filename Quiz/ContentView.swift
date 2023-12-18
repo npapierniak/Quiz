@@ -9,7 +9,7 @@ import SwiftUI
 
 class GlobalData { //creates a class i can use throught my views
     static let shared = GlobalData() //creates a shared variable that is able to be used
-    var right = 0//this is the variabel used
+    var right = 0//this is the variable used
     private init() {}// makes it so there isnt another creation of this class
 }
 
